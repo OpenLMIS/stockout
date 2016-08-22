@@ -69,9 +69,12 @@ for i, key in enumerate(aggregates.keys()):
 # pylab.scatter(negatives[:, 3], negatives[:, 4])
 # pylab.show()
 
+import os
 import csv
 
-with open('stockout/aggregated.csv', 'w') as csv_file:
+stockout_dir = os.path.dirname(os.path.abspath(__file__))
+
+with open(stockout_dir + '/aggregated.csv', 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter="\t")
     for record in matrix:
         writer.writerow(record)

@@ -17,7 +17,7 @@ object Stockout {
   private val sc: SparkContext = new SparkContext("local[2]", "Stockout")
 
   def main(args: Array[String]) {
-    val rawData: RDD[String] = sc.textFile("stockout/aggregated.csv")
+    val rawData: RDD[String] = sc.textFile("aggregated.csv")
     val records: RDD[Array[String]] = rawData.map(_.split('\t'))
     //    facility product month tx_in quantity_in tx_out quantity_out stockout
     //    10	552	2016-03	1	0	1	30	True
